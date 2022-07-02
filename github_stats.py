@@ -284,15 +284,13 @@ class Stats(object):
         )
         lines_changed = await self.lines_changed
         return f"""Name: {await self.name}
-Stargazers: {await self.stargazers:,}
-Forks: {await self.forks:,}
-All-time contributions: {await self.total_contributions:,}
-Repositories with contributions: {len(await self.repos)}
-Lines of code added: {lines_changed[0]:,}
-Lines of code deleted: {lines_changed[1]:,}
-Lines of code changed: {lines_changed[0] + lines_changed[1]:,}
-Project page views: {await self.views:,}
-Languages:
+stargazers: {await self.stargazers:,}
+forks: {await self.forks:,}
+all-time commits: {await self.total_contributions:,}
+repos with contributions: {len(await self.repos)}
+lines of code changed: {lines_changed[0] + lines_changed[1]:,}
+project page views: {await self.views:,}
+languages:
   - {formatted_languages}"""
 
     async def get_stats(self) -> None:
